@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+abstract class shape{
+    abstract void area();
+    abstract void perimeter();
+}
+
+class Circle extends shape{
+    double radius;
+    Circle(double radius){
+        this.radius = radius;
+    }
+    void area(){
+        System.out.println("Area of circle: " + (3.14 * radius * radius));
+    }
+    void perimeter(){
+        System.out.println("Perimeter of circle: " + (2 * 3.14 * radius));
+    }
+}
+
+class Triangle extends shape{
+    double base, height, side1, side2, side3;
+    Triangle(double base, double height, double side1, double side2, double side3){
+        this.base = base;
+        this.height = height;
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+    void area(){
+        System.out.println("Area of triangle: " + (0.5 * base * height));
+    }
+    void perimeter(){
+        System.out.println("Perimeter of triangle: " + (side1 + side2 + side3));
+    }
+}
+
+public class abstract4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int radius = sc.nextInt();
+        Circle circle = new Circle(radius);
+        circle.area();
+        circle.perimeter();
+
+        int base = sc.nextInt();
+        int height = sc.nextInt();  
+        int side1 = sc.nextInt();
+        int side2 = sc.nextInt();   
+        int side3 = sc.nextInt();
+        Triangle triangle = new Triangle(base, height, side1, side2, side3);
+        triangle.area();
+        triangle.perimeter();   
+
+        sc.close();
+    }
+}
