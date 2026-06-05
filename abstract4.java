@@ -19,16 +19,16 @@ class Circle extends shape{
 }
 
 class Triangle extends shape{
-    double base, height, side1, side2, side3;
-    Triangle(double base, double height, double side1, double side2, double side3){
-        this.base = base;
-        this.height = height;
+    double side1, side2, side3;
+    Triangle(double side1, double side2, double side3){
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
     }
     void area(){
-        System.out.println("Area of triangle: " + (0.5 * base * height));
+        // Heron's formula for area of triangle
+        double s = (side1 + side2 + side3) / 2;
+        System.out.println("Area of triangle: " + Math.sqrt(s * (s - side1) * (s - side2) * (s - side3)));
     }
     void perimeter(){
         System.out.println("Perimeter of triangle: " + (side1 + side2 + side3));
@@ -44,12 +44,11 @@ public class abstract4 {
         circle.area();
         circle.perimeter();
 
-        int base = sc.nextInt();
-        int height = sc.nextInt();  
+
         int side1 = sc.nextInt();
         int side2 = sc.nextInt();   
         int side3 = sc.nextInt();
-        Triangle triangle = new Triangle(base, height, side1, side2, side3);
+        Triangle triangle = new Triangle(side1, side2, side3);
         triangle.area();
         triangle.perimeter();   
 
